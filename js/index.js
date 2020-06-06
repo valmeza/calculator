@@ -42,13 +42,13 @@ keys.addEventListener("click", (e) => {
   const calculate = (x, operator, y) => {
     let result = "";
     if (operator === "add") {
-      result = x + y;
+      result = parseFloat(x) + parseFloat(y);
     } else if (operator === "subtract") {
-      result = x - y;
+      result = parseFloat(x) - parseFloat(y);
     } else if (operator === "multiply") {
-      result = x * y;
+      result = parseFloat(x) * parseFloat(y);
     } else if (operator === "divide") {
-      result = x / y;
+      result = parseFloat(x) / parseFloat(y);
     }
     return result;
   };
