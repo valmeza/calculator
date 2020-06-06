@@ -19,8 +19,28 @@ keys.addEventListener("click", (e) => {
     }
   }
 
+  if (!action) {
+    calculator.dataset.previousKey = "number";
+  }
+
   if (action === "decimal") {
     display.textContent = displayNumber + ".";
+    calculator.dataset.previousKey = "decimal";
+
+    if (!displayNumber.includes(".")) {
+      display.textContent = displayNumber + ".";
+    } else if (previousKeyType === "operator") {
+      display.textContent = "0.";
+    }
+    calculator.dataset.previousKeyType = "decimal";
+  }
+
+  if (action === "clear") {
+    calculator.dataset.previousKey = "clear";
+  }
+
+  if (action === "calculate") {
+    calculator.dataset.previousKey = "calculate";
   }
 
   if (
