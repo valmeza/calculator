@@ -39,16 +39,17 @@ keys.addEventListener("click", (e) => {
     key.classList.remove("is-depressed")
   );
 
+  // use floats for a calculator
   const calculate = (x, operator, y) => {
     let result = "";
     if (operator === "add") {
-      result = x + y;
+      result = parseFloat(x) + parseFloat(y);
     } else if (operator === "subtract") {
-      result = x - y;
+      result = parseFloat(x) - parseFloat(y);
     } else if (operator === "multiply") {
-      result = x * y;
+      result = parseFloat(x) * parseFloat(y);
     } else if (operator === "divide") {
-      result = x / y;
+      result = parseFloat(x) / parseFloat(y);
     }
     return result;
   };
