@@ -31,9 +31,33 @@ keys.addEventListener("click", (e) => {
   ) {
     key.classList.add("is-depressed");
     calculator.dataset.previousKeyType = "operator";
+    calculator.dataset.firstValue = displayNumber;
+    calculator.dataset.operator = action;
   }
 
   Array.from(key.parentNode.children).forEach((key) =>
     key.classList.remove("is-depressed")
   );
+
+  const calculate = (x, operator, y) => {
+    let result = "";
+    if (operator === "add") {
+      result = x + y;
+    } else if (operator === "subtract") {
+      result = x - y;
+    } else if (operator === "multiply") {
+      result = x * y;
+    } else if (operator === "divide") {
+      result = x / y;
+    }
+    return result;
+  };
+
+  if (action === "calculate") {
+    const firstValue = calculator.dataset.firstValue;
+    const operator = calculator.dataset.operator;
+    const secondValue = displayNumber;
+
+    display.textContent = calculate(firstValue, operator, secondValue);
+  }
 });
