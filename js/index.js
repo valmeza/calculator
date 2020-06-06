@@ -39,6 +39,7 @@ keys.addEventListener("click", (e) => {
     key.classList.remove("is-depressed")
   );
 
+  // use floats for a calculator
   const calculate = (x, operator, y) => {
     let result = "";
     if (operator === "add") {
